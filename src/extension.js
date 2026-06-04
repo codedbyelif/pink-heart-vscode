@@ -24,9 +24,13 @@ class HeartRainViewProvider {
     this._view = webviewView;
     webviewView.webview.options = {
       enableScripts: true,
-      localResourceRoots: [], // emoji only, no local assets needed
+      localResourceRoots: [vscode.Uri.joinPath(this.context.extensionUri, "images")],
     };
-    webviewView.webview.html = getWebviewContent(readConfig());
+    // URI for the Hello Kitty gif that sits at the bottom of the view
+    const kittyUri = webviewView.webview.asWebviewUri(
+      vscode.Uri.joinPath(this.context.extensionUri, "images", "hello-kittygif.gif")
+    );
+    webviewView.webview.html = getWebviewContent(readConfig(), webviewView.webview, kittyUri);
 
     webviewView.onDidDispose(() => {
       this._view = undefined;
@@ -89,8 +93,10 @@ function getNonce() {
 
 /**
  * @param {{intensity:number, fallMs:number, emojis:string[]}} config
+ * @param {vscode.Webview} webview
+ * @param {vscode.Uri} kittyUri
  */
-function getWebviewContent(config) {
+function getWebviewContent(config, webview, kittyUri) {
   const nonce = getNonce();
   const cfgJson = JSON.stringify(config);
 
@@ -100,7 +106,7 @@ function getWebviewContent(config) {
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta http-equiv="Content-Security-Policy"
-  content="default-src 'none'; style-src 'unsafe-inline'; script-src 'nonce-${nonce}';" />
+  content="default-src 'none'; img-src ${webview.cspSource}; style-src 'unsafe-inline'; script-src 'nonce-${nonce}';" />
 <title>Heart Rain</title>
 <style>
   /* Transparent background — VS Code sidebar color shows through */
@@ -125,10 +131,23 @@ function getWebviewContent(config) {
     90%  { opacity: 1; }
     100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
   }
+  /* Hello Kitty stays pinned to the bottom; hearts rain down over her */
+  #kitty {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    max-width: 320px;
+    pointer-events: none;
+    user-select: none;
+    z-index: 2;
+  }
 </style>
 </head>
 <body>
   <div id="sky"></div>
+  <img id="kitty" src="${kittyUri}" alt="Hello Kitty" />
   <script nonce="${nonce}">
     (function () {
       let config = ${cfgJson};
