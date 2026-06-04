@@ -1,0 +1,105 @@
+{
+  "name": "pink-heart-rain",
+  "displayName": "Pink Heart Theme & Rain",
+  "description": "Pink VS Code themes (dark + light) with a falling-hearts rain in the sidebar.",
+  "version": "0.0.2",
+  "publisher": "codedbyelif",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Themes",
+    "Other"
+  ],
+  "keywords": [
+    "theme",
+    "pink",
+    "cute",
+    "hearts",
+    "rain",
+    "fun",
+    "color-theme"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codedbyelif/pink-heart-vscode.git"
+  },
+  "main": "./src/extension.js",
+  "activationEvents": [],
+  "contributes": {
+    "themes": [
+      {
+        "label": "EL-S Dark Theme",
+        "uiTheme": "vs-dark",
+        "path": "./themes/pink-dark-color-theme.json"
+      },
+      {
+        "label": "EL-S Light Theme",
+        "uiTheme": "vs",
+        "path": "./themes/pink-light-color-theme.json"
+      }
+    ],
+    "views": {
+      "explorer": [
+        {
+          "type": "webview",
+          "id": "pinkHeartRain.view",
+          "name": "Heart Rain"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "pinkHeartRain.start",
+        "title": "Heart Rain: Show",
+        "category": "Pink Heart Rain"
+      }
+    ],
+    "configuration": {
+      "title": "Pink Heart Rain",
+      "properties": {
+        "pinkHeartRain.intensity": {
+          "type": "number",
+          "default": 12,
+          "minimum": 1,
+          "maximum": 60,
+          "description": "Number of hearts created per second (intensity)."
+        },
+        "pinkHeartRain.speed": {
+          "type": "string",
+          "enum": [
+            "slow",
+            "normal",
+            "fast"
+          ],
+          "default": "fast",
+          "description": "Falling speed of the hearts."
+        },
+        "pinkHeartRain.emojis": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "💕",
+            "❤️",
+            "💖",
+            "💗",
+            "💘",
+            "💝"
+          ],
+          "description": "Set of emojis used in the heart rain."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "package": "vsce package",
+    "publish": "vsce publish"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.74.0",
+    "@vscode/vsce": "^2.15.0"
+  }
+}
