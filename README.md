@@ -31,6 +31,8 @@
   - *The background is transparent*, so the hearts float over your own sidebar color.
     The animation pauses when the view is hidden — no wasted CPU, just pure joy when you need it.
 
+![Hello Kitty](images/hello-kittygif.gif)
+
 ### Settings
 
 | Setting | Description | Default |
@@ -86,6 +88,8 @@ npm install
   - Komut paletinden (`Cmd/Ctrl + Shift + P`) **"Heart Rain: Show"** komutuyla da açabilirsiniz.
   - *Arka plan şeffaftır* — kalpler kendi tema renginizin üzerinde süzülür.
     Görünüm gizlenince animasyon durur, CPU harcamaz.
+
+![Hello Kitty](images/hello-kittygif.gif)
 
 ### Ayarlar
 
