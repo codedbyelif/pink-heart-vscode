@@ -10,8 +10,6 @@
 
 ### Preview
 
-![Heart Rain Animation](images/heartrain.png)
-
 ![Dark Theme](images/screenshot-dark.png)
 
 ![Light Theme](images/screenshot-light.png)
@@ -31,7 +29,11 @@
   - *The background is transparent*, so the hearts float over your own sidebar color.
     The animation pauses when the view is hidden — no wasted CPU, just pure joy when you need it.
 
-![Hello Kitty](images/hello-kittygif.gif)
+![Hello Kitty GIF](images/hello-kittygif.gif)
+
+![Hello Kitty](images/hello-kitty-2.png)
+
+> 🎀 *These are animated GIFs — Hello Kitty appears down at the bottom of the Heart Rain sidebar.*
 
 ### Settings
 
@@ -69,8 +71,6 @@ npm install
 
 ### Ekran Görüntüleri
 
-![Kalp Yağmuru Animasyonu](images/heartrain.png)
-
 ![Koyu Tema](images/screenshot-dark.png)
 
 ![Açık Tema](images/screenshot-light.png)
@@ -89,7 +89,11 @@ npm install
   - *Arka plan şeffaftır* — kalpler kendi tema renginizin üzerinde süzülür.
     Görünüm gizlenince animasyon durur, CPU harcamaz.
 
-![Hello Kitty](images/hello-kittygif.gif)
+![Hello Kitty GIF](images/hello-kittygif.gif)
+
+![Hello Kitty](images/hello-kitty-2.png)
+
+> 🎀 *Bunlar hareketli GIF'lerdir — Hello Kitty, Kalp Yağmuru kenar çubuğunun en altında görünür.*
 
 ### Ayarlar
 
