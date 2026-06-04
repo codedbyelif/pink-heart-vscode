@@ -2,7 +2,8 @@
   "name": "pink-heart-rain",
   "displayName": "Pink Heart Theme & Rain",
   "description": "Pink VS Code themes (dark + light) with a falling-hearts rain in the sidebar.",
-  "version": "0.0.2",
+  "version": "0.0.3",
+  "icon": "images/icon.png",
   "publisher": "codedbyelif",
   "license": "MIT",
   "engines": {
